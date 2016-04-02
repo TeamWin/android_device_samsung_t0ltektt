@@ -1,7 +1,7 @@
 USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
--include vendor/samsung/t0lteatt/BoardConfigVendor.mk
+-include vendor/samsung/t0ltektt/BoardConfigVendor.mk
 
 TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := smdk4x12
@@ -46,13 +46,13 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 0x105c0000
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 0x105c0000
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-TARGET_PREBUILT_KERNEL := device/samsung/t0lteatt/kernAl
+TARGET_PREBUILT_KERNEL := device/samsung/t0ltektt/kernAl
 
 # Recovery:Start
 
 # Selinux
 BOARD_SEPOLICY_DIRS += \
-    device/samsung/t0lte/selinux
+    device/samsung/t0ltektt/selinux
 
 BOARD_SEPOLICY_UNION += \
     file_contexts \
@@ -77,7 +77,6 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 
 # Recovery: set depending on recovery being built for. (CWM or TWRP)
 #           both init scripts can be found in the recovery folder
-TARGET_RECOVERY_INITRC := device/samsung/t0lteatt/recovery/init.rc
 HAVE_SELINUX := true
 
 # TWRP specific build flags
@@ -92,14 +91,8 @@ BOARD_HAS_NO_REAL_SDCARD := true
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 TW_NO_USB_STORAGE := true
 TWRP_EVENT_LOGGING := false
-SP1_NAME := "efs"
-SP1_BACKUP_METHOD := files
-SP1_MOUNTABLE := 1
-SP2_NAME := "modem"
-SP2_BACKUP_METHOD := image
-SP2_MOUNTABLE := 0
 #TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/virtual/android_usb/android0/f_mass_storage/lun0/file
-TW_JB_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO := true
 #TW_INCLUDE_CRYPTO_SAMSUNG := true
 TW_CRYPTO_FS_TYPE := "ext4"
 #TW_CRYPTO_REAL_BLKDEV := "/dev/block/mmcblk0p16"
@@ -115,3 +108,4 @@ TARGET_USERIMAGES_USE_F2FS := true
 TW_INCLUDE_FB2PNG := true
 TW_NO_EXFAT_FUSE := true
 TW_NO_EXFAT := true
+TARGET_RECOVERY_PIXEL_FORMAT := "ABGR_8888"
